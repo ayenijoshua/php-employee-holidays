@@ -1,0 +1,17 @@
+{
+    "name": "jayeni/ottonoval-cli",
+    "description": "cli to calculate employee vacations",
+    "type": "project",
+    "authors": [{
+        "name": "Joshua Ayeni",
+        "email": "larryjmpk@gmail.com"
+    }],
+    "require": {},
+
+    "autoload": {
+        "psr-4": {
+            "OttonovaCli\\": "lib/",
+            "App\\": "app/"
+        }
+    }
+}
