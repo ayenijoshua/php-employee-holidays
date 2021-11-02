@@ -6,7 +6,9 @@
         "name": "Joshua Ayeni",
         "email": "larryjmpk@gmail.com"
     }],
-    "require": {},
+    "require": {
+        "phpunit/phpunit": "^9.5"
+    },
 
     "autoload": {
         "psr-4": {

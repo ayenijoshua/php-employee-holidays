@@ -9,4 +9,7 @@ require __DIR__ . '/vendor/autoload.php';
 use OttonovaCli\App;
 
 $app = new App();
+
+
+
 $app->runCommand($argv);
