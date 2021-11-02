@@ -1,15 +1,16 @@
 <?php
 
+
 if (php_sapi_name() !== 'cli') {
     exit;
 }
 
 require __DIR__ . '/vendor/autoload.php';
 
-use OttonovaCli\App;
+use OttonovaCli\CommandTerminal;
+//use OttonovaCli\EmployeeController;
 
-$app = new App();
+$terminal = new CommandTerminal();
 
+$terminal->run();
 
-
-$app->runCommand($argv);
