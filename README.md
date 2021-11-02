@@ -10,4 +10,4 @@ This is a simple PHP CLI script to compute employees vacation days
 ## Assumptions/Ambiguity
 1. I assume that if the year of interest is before the employee's contract start date, the employee has zero vacation days.
 2. I assume that if employee's contract start day is not the first day of the month, then the employee doesn't have a full month credit.
-
+3. I assume that if the computed vacation days has decimal places, I rounded down to the closest integer.
