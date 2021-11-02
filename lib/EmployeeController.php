@@ -25,14 +25,7 @@ class EmployeeController
     }
 
     public function runCommand($year){
-
-        if (empty($year)) {
-            $this->getPrinter()->display("ERROR: Year not passed");
-            exit;
-        }
-
-        //$year = $argv[1];
-
+        
         $vacationDays = $this->displayEmployeesVactionDays($year);
 
         $this->getPrinter()->display("Name: \t\t\t\t Vacation days \n");
@@ -41,8 +34,7 @@ class EmployeeController
             $this->getPrinter()->display("{$val['name']} \t\t\t\t {$val['vacation_days']} \n");
         }
 
-       $input = (new CommandTerminal)->reRun();
-       $this->runCommand($input);
+       (new CommandTerminal)->reRun();
 
     }
 
@@ -76,8 +68,7 @@ class EmployeeController
                 $five_year_diff = $years_in_service/5;
                 $vacationDays += $five_year_diff;
             }
-            //print($years_in_service);
-            //die();
+            
             if($year == date('Y',strtotime($val['contract_start_date']))){
                 $full_month = $contrat_start_day == 1 
                     ? self::MONTHS_IN_YEAR - ($contrat_start_month - 1) 

@@ -20,17 +20,44 @@ class CommandTerminal{
 
     public function getUserInput()
     {
-        $line = readline("Enter year : ");
-        
-        //readline_add_history($line);
+        $year = readline("Enter year : ");
 
-        return $line;
+        return $year;
+    }
+
+    public function getPrinter()
+    {
+        return new CliPrinter();
     }
 
     public function run()
     {
-        $line = $this->getUserInput();
-        (new EmployeeController)->runCommand($line);   
+        $year = $this->getUserInput();
+
+        if($this->isValidYear($year)){
+            (new EmployeeController)->runCommand($year);
+        }else{
+            exit("Bye");
+        }
+           
+    }
+
+    public function isValidYear($year)
+    {
+        $month = 1;
+        $day = 1;
+
+        if (empty($year)) {
+            $this->getPrinter()->display("ERROR: Year not passed");
+            return false;
+        }
+
+        if(! @checkdate($month,$day,$year)){
+            $this->getPrinter()->display("ERROR: Please provide a valid year");
+            return false;
+        }
+
+        return true;
     }
 
     public function reRun()
@@ -42,7 +69,12 @@ class CommandTerminal{
         }
 
         $year = $this->getUserInput();
-        (new EmployeeController)->runCommand($year); 
+        if($this->isValidYear($year)){
+            (new EmployeeController)->runCommand($year);
+        }else{
+            exit("Bye");
+        }
+         
     }
     
 }
